@@ -6,9 +6,9 @@
       <span v-if="isLoggedIn()" <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link> | </span>
       <span v-if="!isLoggedIn()"><router-link to="/signup">Signup</router-link> |</span>
       <span v-if="!isLoggedIn()"><router-link to="/login">login</router-link> |</span>
-      <div id="app">
+      <!-- <div id="app">
   {{ info }}
-</div>
+</div> -->
     </div>
     <router-view/>
   </div>
