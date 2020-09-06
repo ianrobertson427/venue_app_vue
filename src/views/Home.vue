@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <p> hello hello hello</p>
     <h1>Testing Venues</h1>
     <div class="wrapper">
       <input v-model="search_term" type="text" class="input" placeholder="What Events would you like?">
@@ -12,6 +11,9 @@
       <button type="button"v-on:click="getevents()" >Click me!</button>
 
     </div>
+
+    <!-- Create v-for here !-->
+
     <h1>{{ message }}</h1>
     <h1>{{ events }}</h1>
   </div>
@@ -35,14 +37,17 @@ export default {
     getevents: function () {
       axios.defaults.headers.common["Authorization"] =
         "Bearer UDXYtLXMGfqV_Y0ozyO5UwmE8KukBsNgwAh5hyTy";
-      axios
-        .get(
-          "https://api.predicthq.com/v1/events/?active.gte=2015-04-01&active.lte=2020-04-30&category=concerts&sort=rank&within=500mi@51.5074,0.1278"
-        )
-        .then((response) => {
-          console.log(response.data);
-          this.events = response.data.results;
-        });
+      if (this.search_term === "Seattle, Washington") {
+        var url =
+          "https://api.predicthq.com/v1/events/?active.gte=2015-04-01&active.lte=2020-04-30&category=concerts&sort=rank&within=500mi@47.6062,-122.3321";
+      } else {
+        var url =
+          "https://api.predicthq.com/v1/events/?active.gte=2015-04-01&active.lte=2020-04-30&category=concerts&sort=rank&within=500mi@51.5074,0.1278";
+      }
+      axios.get(url).then((response) => {
+        console.log(response.data);
+        this.events = response.data.results;
+      });
     },
   },
 };
