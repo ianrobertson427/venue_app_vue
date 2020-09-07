@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Testing Venues</h1>
+    <h1>Find some shows within 100 miles!</h1>
     <div class="wrapper">
       <input v-model="search_term" type="text" class="input" placeholder="EX: Seattle, Washington">
       <div class="searchbtn">
