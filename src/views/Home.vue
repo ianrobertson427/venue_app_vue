@@ -15,7 +15,11 @@
     <!-- Create v-for here !-->
 
     <h1>{{ message }}</h1>
-    <h1>{{ events }}</h1>
+       <ul>
+      <li v-for="event in events" :key="event.id">
+        {{ event.title }}
+      </li>
+    </ul>
   </div>
 </template>
 <style>
