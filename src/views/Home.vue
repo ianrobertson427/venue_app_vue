@@ -2,13 +2,13 @@
   <div class="home">
     <h1>Testing Venues</h1>
     <div class="wrapper">
-      <input v-model="search_term" type="text" class="input" placeholder="What Events would you like?">
+      <input v-model="search_term" type="text" class="input" placeholder="EX: Seattle, Washington">
       <div class="searchbtn">
         <i class="fas fa-search"></i>
 
       </div>
       
-      <button type="button"v-on:click="getevents()" >Click me!</button>
+      <button type="button"v-on:click="getevents()" >Search a new Location</button>
 
     </div>
 
@@ -17,7 +17,9 @@
     <h1>{{ message }}</h1>
        <ul>
       <li v-for="event in events" :key="event.id">
-        {{ event.title }}
+        <span>{{ "Artist: " + event.title }}</span>
+        <label>{{ "Venue: " + event.entities[0].name }}</label>
+        <label>{{ "Description: " + event.description }}</label>
       </li>
     </ul>
   </div>
@@ -29,7 +31,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "Welcome to Vue.js!",
+      message: "",
       events: [],
       search_term: "",
     };
@@ -56,3 +58,21 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+</style>
+
