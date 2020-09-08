@@ -10,6 +10,14 @@
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
+    <style>
+      /* Set the size of the div element that contains the map */
+     #map {
+       height: 400px;  /* The height is 400 pixels */
+       width: 100%;  /* The width is the width of the web page */
+      }
+   </style>
+
     <!-- Bootstrap CSS -->
     <!-- LINKS FOR PAGES STILL REQUIRED-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -38,7 +46,7 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="#one" class="active">Find a Show</a></li>
-						<!-- <li><a href="#two">Top Venues</a></li> -->
+						<li><a href="#two">Map</a></li> 
 						<li><a href="#three">Top Venues</a></li>
 						<li><a href="#four">Contact</a></li>
 					</ul>
@@ -67,7 +75,7 @@
 								</div>
 								<div class="container">
 									<header class="major">
-                    <h2>Read Only</h2>
+                    <h2>Seattle and Briton</h2>
                     <div id="app">
                       {{ info }}
                       </div>
@@ -79,20 +87,33 @@
 							</section>
 
 						<!-- Two -->
-							<!-- <section id="two">
+							 <section id="two">
 								<div class="container">
-									<h3>Things I Can Do</h3>
-									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer lorem ipsum dolor sit amet.</p>
-									<ul class="feature-icons">
-										<li class="icon solid fa-code">Write all the code</li>
-										<li class="icon solid fa-cubes">Stack small boxes</li>
-										<li class="icon solid fa-book">Read books and stuff</li>
-										<li class="icon solid fa-coffee">Drink much coffee</li>
-										<li class="icon solid fa-bolt">Lightning bolt</li>
-										<li class="icon solid fa-users">Shadow clone technique</li>
-									</ul>
+									<h3>Map</h3>
+									<div id="map"></div>
+                  <script>
+              // Initialize and add the map
+              function initMap() {
+                // The location of Uluru
+                var uluru = {lat: -2.344, lng: 131.036};
+                
+                // The map, centered at Uluru
+                var map = new google.maps.Map(
+                    document.getElementById('map'), {zoom: 4, center: uluru});
+                // The marker, positioned at Uluru
+                var marker = new google.maps.Marker({position: uluru, map: map});
+              }
+                  </script>
+                  <!--Load the API from the specified URL
+                  * The async attribute allows the browser to render the page while the API loads
+                  * The key parameter will contain your own API key (which is not needed for this tutorial)
+                  * The callback parameter executes the initMap() function
+                  -->
+                  <script defer
+                  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBD23Fd1VgbDIZ_9xVlQ3j-BUxKHjvRUEg&callback=initMap">
+                  </script>
 								</div>
-							</section> -->
+							</section> 
 
 						<!-- Three -->
 							<section id="three">
@@ -103,22 +124,22 @@
 										<article>
 											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
 											<div class="inner">
-												<h4>Marble Factory</h4>
+												<h4>Marble Factory - Briton</h4>
 												<p>Part of the Motion warehouse complex, the Marble Factory has rapidly confirmed itself as an integral fixture of Bristol culture. The fully decked out, 1600-capacity space delivers cutting-edge lineups representing a wide range of genres which celebrate the city’s diverse musical offering. On top of its diverse programme, the Marble Factory offers an immersive, all-encompassing audiovisual experience courtesy of its 360 degree mezzanine and L-Acoustics sound system.</p>
 											</div>
 										</article>
 										<article>
 											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
 											<div class="inner">
-												<h4>Terraformed a small moon</h4>
-												<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+												<h4>Marymoor Park Concerts - Seattle</h4>
+												<p>Open-air performance venue, with a variety of food trucks, hosting an annual summer concert series.</p>
 											</div>
 										</article>
 										<article>
 											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
 											<div class="inner">
-												<h4>Snapped dark matter in the wild</h4>
-												<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+												<h4>WaMu Theater - Seattle</h4>
+												<p>Large, flexible performing-arts venue hosting events including stage productions & concerts.</p>
 											</div>
 										</article>
 									</div>
@@ -479,6 +500,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 						-->
 
           </div>
+
+
           
           
 

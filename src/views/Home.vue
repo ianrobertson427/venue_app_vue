@@ -20,6 +20,7 @@
         <span>{{ "Artist: " + event.title }}</span>
         <label>{{ "Venue: " + event.entities[0].name }}</label>
         <label>{{ "Description: " + event.description }}</label>
+        <label>{{ "Coordinates: " + event.location }}</label>
       </li>
     </ul>
   </div>
@@ -53,6 +54,7 @@ export default {
       axios.get(url).then((response) => {
         console.log(response.data);
         this.events = response.data.results;
+        // create loop here
       });
     },
   },
